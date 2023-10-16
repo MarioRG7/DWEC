@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Aleatorio</title>
+</head>
+<body>
+    
+    <script>
+        const numeroAleatorio= (numMax)=>{
+            const num = Math.floor(Math.random()*numMax+1)
+            return num
+        }
+        const result = numeroAleatorio(99999)
+        let array = new Array(10)
+        for(i = 0; i< array.length;i++){
+            array[i] = numeroAleatorio(99999)
+        }
+
+        array.forEach((valor)=>{
+            const div = document.createElement("div")
+      
+
+       
+            div.innerHTML = "El número del premio es : <strong>" + valor + "</strong>"
+            div.className = "alert alert-success"
+       
+            document.body.appendChild(div)
+        })
+    </script>
+</body>
+</html>

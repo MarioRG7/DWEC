@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+        }
+        body{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .contenedor button{
+            height: 100px;
+            width: 100px;
+            border: 1px blue solid;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="contenedor">
+        <button onclick='handleClick(true)'>+</button>
+        <button onclick='handleClick(false)'>-</button>
+        <h1>Contador: <span id="contador">0</span></h1>
+    </div>
+    <div class="reloj">
+        <h1><span id="hora">00</span>:<span id="minutos">00</span>.<span id="seg">00</span></h1>
+        <div class="botones">
+            <button onclick="iniciar()">iniciar</button>
+            <button onclick="parar()">parar</button>
+            <button onclick="reiniciar()">reiniciar</button>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+
+        console.log("hola")
+        let contador = 0;
+        let minutos = 00;
+        let horas = 0;
+        let seg = 0;
+        let intervalId = null;
+        const handleClick = (condition)=>{
+            condition ? contador ++ : contador--
+            document.querySelector('#contador').textContent = contador
+        }   
+        const relojSeg = ()=>{
+            if(seg === 59){
+                seg = 0
+                minutos++
+                document.querySelector('#minutos').textContent = minutos < 10 ? "0" + minutos : minutos; 
+            }if(minutos === 59){
+                minutos = 0
+                horas ++ 
+                document.querySelector('#hora').textContent = horas < 10 ? "0" + horas : horas; 
+            }else{
+                seg++
+            }
+            
+            document.querySelector('#seg').textContent = seg < 10 ? "0" + seg : seg; 
+        }
+
+        const iniciar = ()=>{
+            if (intervalId === null){
+            intervalId = setInterval(relojSeg, 24);
+        }
+        }
+        const parar = () =>{
+            clearInterval(intervalId)
+            intervalId=null
+        }
+        const reiniciar = () =>{
+            clearInterval(intervalId)
+            intervalId=null
+            minutos = 0
+            seg = 0
+            horas=0
+            document.querySelector('#seg').textContent = seg < 10 ? "0" + seg : seg; 
+            document.querySelector('#hora').textContent = horas < 10 ? "0" + horas : horas; 
+            document.querySelector('#minutos').textContent = minutos < 10 ? "0" + minutos : minutos; 
+
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row mx-0">
+            
+          
+        </div>
+        
+    </div>
+    <script>
+        function FabricaCoches (marca, modelo, precio, anoMatriculacion, url){
+            this.marca = marca
+            this.modelo = modelo
+            this.precio = precio 
+            this.anoMatriculacion = anoMatriculacion
+            this.url = url
+        }
+        let coches = new Array(5)
+        
+        coches[0] = new FabricaCoches("Toyota", "Aygo X Cross",17.600, 2023,"./img/nuevo-toyota-aygo-x-cross-en-la-prueba-de-coche-global_95_317x168.jpeg")
+        coches[1] = new FabricaCoches("Opel", "Opel Astra",26.499, 2023,"./img/prueba-del-nuevo-opel-astra_95_317x168.jpeg")
+        coches[2] = new FabricaCoches("Skoda", "Skoda Karoq 2022",35.000, 2023,"./img/actualizacion-de-skoda-karoq-2022_95_317x168.jpeg")
+        coches[3] = new FabricaCoches("Alfa", "Alfa Romeo Tonale",37.400, 2023,"./img/alfa-romeo-tonale_95_317x168.jpeg")
+        coches[4] = new FabricaCoches("Jaguar", "Jaguar E-Pace",58.350, 2023,"./img/jaguar-f-pace_95_317x168.jpeg")
+        
+        function pintarCoches (lista){
+        lista.forEach(value =>{
+            const div = document.createElement("div")
+
+            div.innerHTML = `
+                            <div class="col  mt-3">
+                                <div class="card" ">
+                                    <img src="${value.url}" class="card-img-top" alt="...">
+                                    
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">${value.modelo}</li>
+                                        <li class="list-group-item">${value.marca}</li>
+                                        <li class="list-group-item">${value.precio}</li>
+                                        <li class="list-group-item">${value.anoMatriculacion}</li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>`
+            document.querySelector(".row").appendChild(div)
+            })
+        }
+
+        pintarCoches(coches)
+    </script>
+</body>
+</html>
