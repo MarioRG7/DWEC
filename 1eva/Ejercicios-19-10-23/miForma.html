@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <label for="box1">Opcion 1:</label>
+            <input type="checkbox" id="box1" class="box">
+        <label for="box2">Opcion 2:</label>
+            <input type="checkbox" id="box2" class="box">
+        <label for="box3">Opcion 3:</label>
+            <input type="checkbox" id="box3" class="box">
+    </div>
+    <script>
+        const boxs = document.querySelectorAll(".box")
+
+        boxs.forEach((box)=>{
+            box.addEventListener('change',()=>{
+            console.log(box.checked)
+            if (box.checked){
+                boxs.forEach((otherBox)=>{
+                    if (otherBox !== box && otherBox.checked){
+                        otherBox.checked = false
+                    }
+                })
+            }
+        })
+})
+    </script>
+</body>
+</html>
