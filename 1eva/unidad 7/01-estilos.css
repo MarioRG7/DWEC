@@ -1,0 +1,12 @@
+button{
+    display:block;
+    width: 100%;
+}
+
+.error{
+    border-color: red;
+}
+
+.success{
+    border-color: green;
+}

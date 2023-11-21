@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        #loading{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar-expand">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Mi blog</a>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <button class="nav-link btn" id="usuarios">usuarios</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" id="posts">Posts</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <div class="py-4 w-100 text-center d-flex align-items-center justify-content-center" id="app">
+        
+            
+        </div>
+    </main>
+    <template id="tr">
+        <tr>
+            <td class="id align-middle"></td>
+            <td class="align-middle"><a href="#" class="username"></a></td>
+            <td class="email align-middle"></td>
+            <td class="id align-middle"><button class="btn btn-success">Ver posts</button></td>
+        </tr>
+    </template>
+    <template id="table">
+        <table class="table table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Post</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </template>
+    <template id="infoUser">
+        <div class="card">
+            <div class="card-header">
+                <h3>Informacion del usuario</h3>
+            </div>
+            <div class="card-body">
+                <div id="user-info">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Name:</strong> <span id="name"></span></li>
+                        <li class="list-group-item"><strong>Username:</strong> <span id="username"></span></li>
+                        <li class="list-group-item"><strong>Email:</strong> <span id="email"></span></li>
+                        <li class="list-group-item"><strong>Phone:</strong> <span id="phone"></span></li>
+                        <li class="list-group-item"><strong>Website:</strong> <span id="website"></span></li>
+                        <li class="list-group-item"><strong>Company:</strong> <span id="company"></span></li>
+                        <li class="list-group-item"><strong>Address:</strong> <span id="address"></span></li>
+                        <li class="list-group-item"><button class="btn btn-success">Ver posts</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="feed">
+        <div class="card text-bg-light mb-4 " >
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text text"></p>
+                <a href="#" class="usuario" onclick="pintarUser(this.dataset.idUser)"></a>
+            </div>
+        </div>   
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

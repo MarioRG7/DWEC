@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="direccion">Direccion: </label>
+        <input type="text" name="direccion" id="direccion" placeholder="Ej: Toledo">
+        <button type="submit">Buscar</button>
+
+    </form>
+
+    <div class="map" id="map">
+
+    </div>
+   
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnkTR_zPOUknwTlsinR5jHtr8_vbbuhb8&callback=initMap">
+    </script> 
+
+     
+     <script>
+        
+        let map;
+
+        async function initMap() {
+            //@ts-ignore
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8,
+            });
+        }
+     </script>
+</body>
+</html>

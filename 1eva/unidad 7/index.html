@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <div class="contenedor">
+
+        </div>
+        <button>GET</button>
+    </div>
+    <script>
+        const contenedor = document.querySelector(".contenedor")
+        const button = document.querySelector("button")
+        const functionFetch = async()=>{
+            return await fetch("http://www.boredapi.com/api/activity")
+            .then(response =>{
+                if(!response.ok) throw new Error("Error en la peticion")
+                return response.json()
+            })
+            .catch(error=>{
+                console.error(error)
+            })
+        }
+        button.addEventListener("click",()=>{   
+            functionFetch()
+            .then(data =>{
+                console.log(data)
+                const dataString = JSON.stringify(data, null, 2 );
+                contenedor.innerHTML += "</br>" + dataString
+            })
+            console.log("hola")
+        })
+
+    </script>
+</body>
+</html>
